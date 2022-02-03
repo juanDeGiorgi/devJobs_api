@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
 
-const indexController = require('../controllers');
+const router = express.Router();
 
-/* GET home page. */
-router.get('/', indexController.index);
+const userController = require('../controllers/users');
+
+/* entitys routers */
+router.use('/users', userController.getAll);
 
 module.exports = router;

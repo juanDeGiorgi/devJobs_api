@@ -1,10 +1,10 @@
 const express = require('express');
 
 const router = express.Router();
-
-const userController = require('../controllers/users');
+const jobs = require('./jobs');
 
 /* entitys routers */
-router.use('/users', userController.getAll);
+
+router.use('./jobs',jobs);
 
 module.exports = router;

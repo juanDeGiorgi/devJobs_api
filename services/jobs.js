@@ -49,3 +49,11 @@ const remove = (id) => {
         throw new Error(err);
     };
 }
+
+module.exports = {
+    getAll,
+    getById,
+    create,
+    update,
+    remove
+}

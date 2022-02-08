@@ -2,9 +2,9 @@ const express = require('express');
 
 const router = express.Router();
 
-const userController = require('../controllers/users');
+const usersRoutes = require('./users');
 
 /* entitys routers */
-router.use('/users', userController.getAll);
+router.use('/users', usersRoutes);
 
 module.exports = router;

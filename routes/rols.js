@@ -12,3 +12,5 @@ router.post('/',rolsController.create);
 router.put('/:id',rolsController.update);
 
 router.delete('/:id',rolsController.remove);
+
+module.exports = router;

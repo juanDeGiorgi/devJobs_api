@@ -1,6 +1,6 @@
 const repository= require('../repositories/jobs');
 
-const getAll= () => { // Mensaje atrapa-curiosos e.e
+const getAll= () => { 
     try {
         const jobs = repository.getAll();
         return jobs;

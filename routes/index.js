@@ -10,7 +10,7 @@ const aplicantsRoutes = require('./aplicants');
 /* entitys routers */
 router.use('/users', usersRoutes);
 router.use('/aplicants', aplicantsRoutes);
-router.use('/jobs',jobs);
-router.use('/comments,',comments);
+router.use('/jobs', jobs);
+router.use('/comments,', comments);
 
 module.exports = router;

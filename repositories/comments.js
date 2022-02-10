@@ -5,9 +5,9 @@ const update = () => '';
 const remove = () => '';
 
 module.exports = {
-    getAll,
-    getById,
-    create,
-    update,
-    remove
-}
+  getAll,
+  getById,
+  create,
+  update,
+  remove,
+};

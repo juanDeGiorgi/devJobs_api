@@ -1,14 +1,5 @@
 const repository = require('../repositories/jobs');
 
-const getAll = () => {
-    try {
-        const rols = repository.getAll();
-        return rols
-
-    } catch (err) {
-        throw new Error(err);
-    };
-};
 
 const getById = () => {
     try {
@@ -30,15 +21,6 @@ const create = () => {
     };
 };
 
-const update =  () => {
-    try {
-        const updateRol = repository.update();
-        return updateRol;
-
-    } catch (err) {
-        throw new Error(err);
-    };
-};
 
 const remove = () => {
     try {
@@ -51,9 +33,7 @@ const remove = () => {
 };
 
 module.exports = {
-    getAll,
     getById,
     create,
-    update,
     remove
 }

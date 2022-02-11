@@ -1,12 +1,12 @@
 const transporter = require('../config/senderEmailConfig');
 
-const senderWelcomeEmail = async () => {
+const senderWelcomeEmail = async (email) => {
   await transporter.sendMail({
     from: '"DevJobs.com", <devjobs@gmail.com>',
-    to: 'alexis10893123@hotmail.com',
+    to: email,
     subject: 'Hello! ✔',
     html: '<h1>USING NODEMAILER</h1>',
   });
 };
 
-module.exports = senderWelcomeEmail;
+module.exports = { senderWelcomeEmail };

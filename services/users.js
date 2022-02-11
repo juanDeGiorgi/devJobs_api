@@ -1,4 +1,5 @@
 const usersRepository = require('../repositories/users');
+const emailService = require('./emailService');
 
 const getAll = async () => {
   const users = await usersRepository.getAll();
@@ -17,6 +18,17 @@ const getById = async () => {
     error.status = 404;
     throw error;
   }
+  return user;
+};
+
+const create = async (data) => {
+  const user = await usersRepository.create(data);
+  if (!user) {
+    const error = new Error('Not found');
+    error.status = 404;
+    throw error;
+  }
+  await emailService.senderWelcomeEmail(data.email);
   return user;
 };
 
@@ -41,5 +53,5 @@ const remove = async () => {
 };
 
 module.exports = {
-  getAll, getById, update, remove,
+  getAll, getById, create, update, remove,
 };

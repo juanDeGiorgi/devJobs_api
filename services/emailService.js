@@ -1,9 +1,9 @@
 const transporter = require('../config/senderEmailConfig');
 
-const senderWelcomeEmail = async (data) => {
+const senderWelcomeEmail = async () => {
   await transporter.sendMail({
     from: '"DevJobs.com", <devjobs@gmail.com>',
-    to: data.newUserEmail,
+    to: 'alexis10893123@hotmail.com',
     subject: 'Hello! ✔',
     html: '<h1>USING NODEMAILER</h1>',
   });

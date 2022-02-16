@@ -26,6 +26,15 @@ const getById = () => {
   return user;
 };
 
+const create = (data) => {
+  const user = {
+    name: data.name,
+    surname: data.surname,
+    age: data.age,
+  };
+  return user;
+};
+
 const update = () => {
   const msg = 'user updated';
 
@@ -39,5 +48,5 @@ const remove = () => {
 };
 
 module.exports = {
-  getAll, getById, update, remove,
+  getAll, getById, create, update, remove,
 };

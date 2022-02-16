@@ -6,12 +6,12 @@ const commentsController = require('../controllers/comments');
 
 router.get('/', commentsController.getAll);
 
-router.get('/:id', commentsController.GetById);
+router.get('/:id', commentsController.getById);
 
 router.post('/', commentsController.create);
 
-router.update('/:id', commentsController.update);
+router.put('/:id', commentsController.update);
 
-router.remove('/:id', commentsController.remove);
+router.delete('/:id', commentsController.remove);
 
 module.exports = router;

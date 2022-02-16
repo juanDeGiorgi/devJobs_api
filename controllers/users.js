@@ -17,6 +17,16 @@ const getById = async (req, res, next) => {
   }
 };
 
+const create = async (req, res, next) => {
+  try {
+    const { body } = req;
+    const user = await usersService.create(body);
+    res.json(`user created ${user}`);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const update = async (req, res, next) => {
   try {
     const updatedUser = await usersService.update();
@@ -35,5 +45,5 @@ const remove = async (req, res, next) => {
   }
 };
 module.exports = {
-  getAll, getById, update, remove,
+  getAll, getById, create, update, remove,
 };

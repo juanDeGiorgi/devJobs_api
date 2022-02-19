@@ -1,8 +1,6 @@
 const usersRepository = require('../repositories/users');
-<<<<<<< HEAD
-=======
 const emailService = require('./emailService');
->>>>>>> f75c1af2701e01c464dccfc4a2e9368ba753c08d
+const tokenService = require('./tokenService');
 
 const getAll = async () => {
   const users = await usersRepository.getAll();
@@ -24,8 +22,15 @@ const getById = async () => {
   return user;
 };
 
-<<<<<<< HEAD
-=======
+const login = async (data) => {
+  const token = await tokenService.tokenGenerator(data);
+
+  if (!token) {
+    console.log('error on users.js');
+  }
+  return token;
+};
+
 const create = async (data) => {
   const user = await usersRepository.create(data);
   if (!user) {
@@ -37,7 +42,6 @@ const create = async (data) => {
   return user;
 };
 
->>>>>>> f75c1af2701e01c464dccfc4a2e9368ba753c08d
 const update = async () => {
   const userUpdated = await usersRepository.update();
   if (!userUpdated) {
@@ -59,9 +63,5 @@ const remove = async () => {
 };
 
 module.exports = {
-<<<<<<< HEAD
-  getAll, getById, update, remove,
-=======
-  getAll, getById, create, update, remove,
->>>>>>> f75c1af2701e01c464dccfc4a2e9368ba753c08d
+  getAll, getById, create, update, remove, login,
 };

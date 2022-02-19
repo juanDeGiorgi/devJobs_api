@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const passport = require('passport');
 
 const indexRouter = require('./routes');
 
@@ -10,6 +13,9 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize());
+
+require('./config/passport');
 
 app.use('/', indexRouter);
 
@@ -26,7 +32,7 @@ app.use((err, req, res, next) => {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.json(err);
 });
 
 module.exports = app;

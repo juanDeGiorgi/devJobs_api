@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
     "db:up": "docker-compose up",
     "db:down": "docker-compose down",
     "db:mysql": "winpty docker exec -it devjobs_db mysql -u root -ppassword",

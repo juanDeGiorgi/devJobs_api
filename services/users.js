@@ -1,5 +1,8 @@
+const bcrypt = require('bcryptjs');
 const usersRepository = require('../repositories/users');
 const emailService = require('./emailService');
+const status = require('../constants/statusCodes');
+const messages = require('../constants/messages');
 
 const getAll = async () => {
   const users = await usersRepository.getAll();
@@ -21,14 +24,23 @@ const getById = async () => {
   return user;
 };
 
-const create = async (data) => {
-  const user = await usersRepository.create(data);
+const create = async (body) => {
+  const user = await usersRepository.create({
+    name: body.name,
+    last_name: body.last_name,
+    email: body.email,
+    password: bcrypt.hashSync(body.password, 10),
+    description: body.description,
+    cv: body.cv,
+    rol_id: body.rol_id,
+
+  });
   if (!user) {
-    const error = new Error('Not found');
-    error.status = 404;
+    const error = new Error(messages.NOT_FOUND_ERROR);
+    error.status = status.NOT_FOUND_ERROR;
     throw error;
   }
-  await emailService.senderWelcomeEmail(data.email);
+  await emailService.senderWelcomeEmail(body.email);
   return user;
 };
 

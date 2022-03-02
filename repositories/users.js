@@ -1,3 +1,5 @@
+const db = require('../database/models');
+
 const getAll = () => {
   const users = [{
     name: 'Alexis',
@@ -26,12 +28,8 @@ const getById = () => {
   return user;
 };
 
-const create = (data) => {
-  const user = {
-    name: data.name,
-    surname: data.surname,
-    age: data.age,
-  };
+const create = async (data) => {
+  const user = await db.User.create(data);
   return user;
 };
 

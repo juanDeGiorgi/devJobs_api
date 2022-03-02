@@ -1,6 +1,8 @@
 const usersRepository = require('../repositories/users');
 const emailService = require('./emailService');
+
 const tokenService = require('./tokenService');
+
 
 const getAll = async () => {
   const users = await usersRepository.getAll();

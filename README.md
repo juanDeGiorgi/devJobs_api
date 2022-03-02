@@ -1,29 +1,54 @@
 # DevJobs proyect
 
-## Descripcion
+## Description
 
-devJobs es un proyecto hecho con la idea de practicar y aprender nuevas tecnologias,el cual tiene
-como idea central ser una plataforma web donde se publiquen y busquen ofertas de trabajo en el area de sistemas 
+devJobs is a project created with the idea of practicing and learning new technologies, the center of
+idea is a web platform in which job offers in the Systems area are published and searched.
 
-## Tecnologias
+## Members
+
+    - Alexis Zacre
+    - Ezequiel Rango
+    - Juan De Giorgi
+## Technologies
 
     - NodeJs
     - express
     - Passport
     - MySQL
+    - Sequelize 
     - JWT
     - NodeMailer 
+    - Docker 
 
-## variables ENV
+## ENV variables
 
-| Nombre            | Tipo   | Descripcion                                            |
+| Name              | Type   | Description                                            |
 | ----------------- | ------ | ------------------------------------------------------ |
-| SERVER_PORT       | number | Puerto en el cual se pondra en escucha el servidor     |
-| DB_USERNAME       | string | Nombre de usuario de la base de datos                  |
-| DB_PASSWORD       | string | Contraseña de la base de datos                         |
+| SERVER_PORT       | number | Server listening port                                  |
+| DB_USERNAME       | string | Database userName                                      |
+| DB_PASSWORD       | string | Database password                                      |
+| EMAIL_ADDRESS     | string | Email address                                          |
+| EMAIL_PASSWORD    | string | Email password                                         |
+| JWT_SECRET        | string | Secret key for generate JWT tokens                     |
 
-## Integrantes
+## Environment setup
 
-    - Alexis Zacre
-    - Ezequiel Rango
-    - Juan De Giorgi
+1. copy and rename .env.example file to .env ,fill variables with your data. 
+
+
+2. Install dependencies :
+
+        npm install
+
+3. Create database :
+
+        npm run db:up
+
+4. Fill database :
+
+        npm run db:migrate
+
+5. Run proyect :
+
+        npm start

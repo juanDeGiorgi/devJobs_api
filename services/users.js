@@ -1,6 +1,9 @@
 const usersRepository = require('../repositories/users');
 const emailService = require('./emailService');
 
+const tokenService = require('./tokenService');
+
+
 const getAll = async () => {
   const users = await usersRepository.getAll();
   if (!users) {
@@ -19,6 +22,15 @@ const getById = async () => {
     throw error;
   }
   return user;
+};
+
+const login = async (data) => {
+  const token = await tokenService.tokenGenerator(data);
+
+  if (!token) {
+    console.log('error on users.js');
+  }
+  return token;
 };
 
 const create = async (data) => {
@@ -53,5 +65,5 @@ const remove = async () => {
 };
 
 module.exports = {
-  getAll, getById, create, update, remove,
+  getAll, getById, create, update, remove, login,
 };

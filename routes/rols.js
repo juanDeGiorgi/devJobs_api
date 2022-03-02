@@ -4,7 +4,7 @@ const router = express.Router();
 
 const rolsController = require('../controllers/rols');
 
-router.get('/'.rolsController.getById);
+/* router.get('/'.rolsController.getById); */
 
 router.post('/', rolsController.create);
 

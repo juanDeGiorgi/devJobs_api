@@ -20,6 +20,8 @@ const getAll = () => {
 const getById = () => {
   const user = {
     name: 'Alexis',
+    email: 'alexis10893123@gmail.com',
+    password: 'kAr23li',
     surname: 'Zacre',
     age: 20,
   };

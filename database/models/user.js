@@ -14,13 +14,36 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4,
+      validate: {
+        isUUID: 4,
+      },
+    },
     name: DataTypes.STRING,
     last_name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     description: DataTypes.STRING,
-    cv: DataTypes.STRING,
-    rol_id: DataTypes.INTEGER,
+    cv: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    rol_id: {
+      type: DataTypes.UUID,
+      allowNull: true,
+    },
   }, {
     sequelize,
     modelName: 'User',

@@ -1,25 +1,26 @@
+/* eslint-disable no-unused-vars */
+const { DataTypes } = require('sequelize');
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Roles', {
       id: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
-        primaryKey: true,
+        type: DataTypes.UUID,
       },
       name: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
       },
       deletedAt: {
         allowNull: true,
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
       },
     });
   },

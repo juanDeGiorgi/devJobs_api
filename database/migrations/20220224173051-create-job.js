@@ -1,49 +1,50 @@
+/* eslint-disable no-unused-vars */
+const { DataTypes } = require('sequelize');
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Jobs', {
       id: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
-        primaryKey: true,
+        type: DataTypes.UUID,
       },
       name: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING(255),
       },
       seniority: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING(255),
       },
       description: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING(255),
       },
       requeriments: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING(255),
       },
       responsabilitys: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING(255),
       },
       salary: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.FLOAT,
       },
       type: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING(255),
       },
       remote: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.TINYINT,
       },
       company_id: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
       },
       deletedAt: {
         allowNull: true,
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
       },
     });
   },

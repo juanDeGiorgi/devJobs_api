@@ -1,4 +1,6 @@
 const usersService = require('../services/users');
+const messages = require('../constants/messages');
+const status = require('../constants/statusCodes');
 
 const getAll = async (req, res, next) => {
   try {
@@ -19,9 +21,14 @@ const getById = async (req, res, next) => {
 
 const create = async (req, res, next) => {
   try {
-    const { body } = req;
-    const user = await usersService.create(body);
-    res.json(`user created ${user}`);
+    const user = await usersService.create(req.body);
+    res.status(status.RESPONSE_OK_CREATED).json(
+      {
+        status: status.RESPONSE_OK_CREATED,
+        msg: messages.RESPONSE_OK_CREATED,
+        user,
+      },
+    );
   } catch (error) {
     next(error);
   }
